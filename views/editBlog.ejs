@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head'); -%>
+  </head>
+
+  <body>
+    <%- include('./partials/scripts'); -%> <%- include('./partials/navbar'); -%>
+
+    <form action="/editblog" enctype="multipart/form-data" method="post">
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          value="<%= blog.title %>"
+          aria-describedby="title"
+          required
+        />
+      </div>
+
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <label for="body">Context</label>
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            id="body"
+            style="height: 100px"
+            value="<%= blog.body %>"
+            name="body"
+          ></textarea>
+        </div>
+      </div>
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <label for="cover_file" class="form-label">Cover Image</label>
+        <input
+          class="form-control"
+          type="file"
+          id="cover_file"
+          name="cover_file"
+        />
+      </div>
+      <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
