@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head'); -%>
+</head>
+
+<body>
+    <%- include('./partials/scripts'); -%>
+        <%- include('./partials/navbar'); -%>
+            </br>
+            <form action="/users/signup" enctype="multipart/form-data" method="POST">
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="firstName"
+                        required>
+                </div>
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="lastName"
+                        required>
+                </div>
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="email" required>
+                </div>
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <label for="uploaded_file" class="form-label">Profile Image</label>
+                    <input class="form-control" type="file" id="uploaded_file" name="uploaded_file">
+                </div>
+                </br>
+                </br>
+                <div class="mx-auto col-10 col-md-8 col-lg-6">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+</body>
+
+</html>
