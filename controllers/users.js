@@ -46,9 +46,8 @@ exports.getUser = async (req, res) => {
   res.json({ UserData });
 };
 exports.getAllUsers = async (req, res) => {
-  const UserData = await users.find();
-
-  res.json({ Total: UserData.length, UserData });
+  const UsersData = await users.find();
+  res.render("manageUsers", { UsersData, user: req.user });
 };
 
 function SendTokenToResponse(req, res, users) {
