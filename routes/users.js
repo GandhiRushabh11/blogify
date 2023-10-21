@@ -32,5 +32,8 @@ router
   })
   .post("/signup", upload.single("uploaded_file"), createUser);
 
-router.get("/", getAllUsers).get("/manageUsers").get("/:id", getUser);
+router
+  .get("/", getAllUsers)
+  .get("/manageUsers", getAllUsers)
+  .get("/:id", getUser);
 module.exports = router;

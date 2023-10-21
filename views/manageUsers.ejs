@@ -5,7 +5,7 @@
   </head>
   <body>
     <%- include('./partials/scripts'); -%> <%- include('./partials/navbar'); -%>
-    <% if (locals.blogs) { %>
+    <% if (locals.UsersData) { %>
     <div class="container mt-5">
       <div class="table-wrapper">
         <div class="table-title">
@@ -13,54 +13,28 @@
             <div class="col-sm-8">
               <h2>Your <b>Blogs</b></h2>
             </div>
-            <div class="col-sm-4">
-              <form method="GET" action="/blog">
-                <button type="submit" class="btn btn-info add-new">
-                  <i class="fa fa-plus"></i> Add New
-                </button>
-              </form>
-            </div>
+            <div class="col-sm-4"></div>
           </div>
         </div>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Image</th>
-              <th>Created By</th>
-              <th>Actions</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Profile Photo</th>
             </tr>
           </thead>
           <tbody>
-            <% blogs.forEach(blog => { %>
+            <% UsersData.forEach(user => { %>
             <tr>
-              <td><%= blog.title %></td>
+              <td><%= user.firstName %></td>
+              <td><%= user.lastName %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
               <td>
-                <img src="/public/<%= blog.coverImageURL %>" width="100px" />
-              </td>
-              <td><%= blog.createdBy.firstName %></td>
-              <td>
-                <a
-                  class="edit"
-                  title="Edit"
-                  data-toggle="tooltip"
-                  href="editblog/<%=blog._id %>"
-                  ><i class="fa fa-pencil"></i
-                ></a>
-                <a
-                  class="delete"
-                  title="Delete"
-                  data-toggle="tooltip"
-                  href="deleteblog/<%=blog._id %>"
-                  ><i class="fa fa-trash-o"></i
-                ></a>
-                <a
-                  class="view"
-                  title="view"
-                  data-toggle="tooltip"
-                  href="<%=blog._id %>"
-                  ><i class="fa fa-eye"></i
-                ></a>
+                <img src="/public/<%= user.profilePhotoURL %>" width="100px" />
               </td>
             </tr>
             <% }) %> <% } else { %>
